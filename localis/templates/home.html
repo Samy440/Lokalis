@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Localiser un téléphone - Accueil</title>
+    <!-- Intégration de Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold mb-6 text-center">Localiser un téléphone</h1>
+        <form method="post" action="{% url 'localize' %}" class="flex flex-col items-center">
+            {% csrf_token %}
+            <label for="phone_number" class="mb-2">Numéro de téléphone :</label>
+            <input type="text" id="phone_number" name="phone_number" required
+                class="border border-gray-300 rounded-lg px-3 py-2 w-64 focus:outline-none focus:border-blue-500">
+            <button type="submit"
+                class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">
+                Lancer
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>

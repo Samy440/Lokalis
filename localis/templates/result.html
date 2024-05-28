@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat de votre recherche</title>
+    <!-- Intégration de Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Styles CSS personnalisés -->
+    <style>
+        /* Ajoutez vos styles personnalisés ici */
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="max-w-lg w-full bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold mb-4">Résultat de votre recherche</h1>
+        <p class="mb-2">Opérateur : {{ operateur }}</p>
+        <p class="mb-6">Adresse : {{ user_location.address }}</p>
+
+        <!-- Intégration de la carte dynamique générée par Folium -->
+        <h2 class="text-xl font-bold mb-2">Carte</h2>
+        <div class="mb-4">
+            <button onclick="window.location.href='{% url 'map' %}'" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">
+                Voir sur la carte
+            </button>
+        </div>
+        <div id="mapContainer"></div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Fonction pour afficher la carte
+        function viewOnMap() {
+            // Utilisez AJAX pour charger dynamiquement la carte
+            // Remplacez cet exemple par votre propre logique AJAX pour afficher la carte
+            // Assurez-vous d'inclure la carte générée par Folium dans l'élément mapContainer
+            document.getElementById("mapContainer").innerHTML = "<img src='{% url 'map' %}' alt='Carte' class='rounded-lg shadow-md'>";
+        }
+    </script>
+</body>
+
+</html>
